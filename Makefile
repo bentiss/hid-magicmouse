@@ -5,6 +5,9 @@ PWD := $(shell pwd)
 default:
 	$(MAKE) -C $(KDIR) SUBDIRS=$(PWD) modules
 
+test: hid-magicmouse.ko
+	rmmod hid_magicmouse ; insmod ./hid-magicmouse.ko
+
 install: hid-magicmouse.ko
 	/bin/bash install.sh
 
